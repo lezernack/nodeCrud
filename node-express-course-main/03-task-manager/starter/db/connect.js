@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
 
 const connectionString =
-  "mongodb+srv://luksezck:flash@nodeexpressprojects.yvsootq.mongodb.net/";
+  "mongodb+srv://luksezck:flash@nodeexpressprojects.yvsootq.mongodb.net/?retryWrites=true&w=majority&appName=NodeExpressProjects";
 
-mongoose
-  .connect(connectionString, {
+const connectDB = (url) => {
+  return mongoose.connect(connectionString, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
-  })
-  .then(() => console.log("CONNECTED TO THE Db..."))
-  .catch((err) => console.log(err));
+  });
+};
+
+module.exports = connectDB;
