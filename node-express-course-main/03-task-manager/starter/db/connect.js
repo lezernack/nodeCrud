@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
-const connectionString =
-  "mongodb+srv://luksezck:flash@nodeexpressprojects.yvsootq.mongodb.net/?retryWrites=true&w=majority&appName=NodeExpressProjects";
-
 const connectDB = (url) => {
-  return mongoose.connect(connectionString, {
+  return mongoose.connect(url, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
@@ -12,4 +9,4 @@ const connectDB = (url) => {
   });
 };
 
-module.exports = connectDB;
+module.exports = connectDB();
